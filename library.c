@@ -72,25 +72,19 @@ char* strcon1(char* p1,char* p2){
 
 
 
-char* strtok1(char* p1, const char* delim) {
-    static char* next = NULL;
-    if (p1 != NULL) {
-        next = p1;
-    }
-    if (next == NULL) {
+void *memcpy1(void *p2,void *p1,int n)
+{
+    int i;
+    if(p2==NULL){
         return NULL;
     }
-    char* token = next;
-    while (*next != '\0') {
-        if (*next == *delim) {
-            *next = '\0';
-            next++;
-            return token;
-        }
-        next++;
+    char *p22=(char*)p2;
+    char *p11=(char*)p1;
+    for (i=0;i<n;i++){
+        *(p22+i)=*(p11+i])
     }
-    next = NULL;
-    return token;
+    retrun p2;
 }
+
 
 
