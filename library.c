@@ -67,25 +67,30 @@ char* strcon1(char* p1,char* p2){
     }
     return p1;
 }
-int main() {
-    char *p1;
-    int n1;
-    char delim;
-    printf("\n length of string1:");
-    scanf("%d",&n1);
-    p1=(char*)malloc(n1*sizeof(char));
-    printf("\n input sring1:");
-    scanf("%s",p1);
-    printf("Enter a delimiter character: ");
-    scanf("%s", &delim);
-    char* token = strtok1(p1, &delim);
-    while (token != NULL) {
-        printf("%s\n", token);
-        token = strtok1(NULL, &delim);
+
+
+
+
+
+char* strtok1(char* p1, const char* delim) {
+    static char* next = NULL;
+    if (p1 != NULL) {
+        next = p1;
     }
-    return 0;
+    if (next == NULL) {
+        return NULL;
+    }
+    char* token = next;
+    while (*next != '\0') {
+        if (*next == *delim) {
+            *next = '\0';
+            next++;
+            return token;
+        }
+        next++;
+    }
+    next = NULL;
+    return token;
 }
-
-
 
 
