@@ -87,4 +87,26 @@ void *memcpy1(void *p2,void *p1,int n)
 }
 
 
+char* strtok1(char* str, const char* delim) {
+    static char* next = NULL;
+    if (str != NULL) {
+        next = str;
+    }
+    if (next == NULL) {
+        return NULL;
+    }
+    char* token = next;
+    while (*next != '\0') {
+        if (*next == *delim) {
+            *next = '\0';
+            next++;
+            return token;
+        }
+        next++;
+    }
+    next = NULL;
+    return token;
+}
+
+
 
