@@ -110,3 +110,24 @@ char* strtok1(char* str, const char* delim) {
 
 
 
+
+
+void *memmove1(char *p2,char *p1,int n){
+    int i;
+    char *p11=(char *)p1;
+    char *p22=(char *)p2;
+    char *temp = char[n]
+    for(i=0;i<n;i++)
+    {
+        temp[i]=p11[i];
+    }
+    for (i=0;i<n;i++){
+        p22[i]=trmp[i];
+    }
+}
+
+    
+
+
+
+
