@@ -82,19 +82,19 @@ static void* keyboard(void* args)
 static void* mypipeline(void* args)
 {
 	
-        char* path=(char*)args;
+        char* path=(char*)args;	//Type casting the arguments
 	
 	char input[2048];
 	
-	sprintf(input,"playbin uri=%s",path);   	
+	sprintf(input,"playbin uri=%s",path);   //Copying the path into input 	
 	do
 	{
-		pipeline=gst_parse_launch(input,NULL);
+		pipeline=gst_parse_launch(input,NULL);		//Creating pipeline
 	
-		gst_element_set_state(pipeline,GST_STATE_PLAYING);
-		printf("i called by thread\n");
+		gst_element_set_state(pipeline,GST_STATE_PLAYING);   //Setting pipeline to play
+		//printf("i called by thread\n");
 		
-		pthread_create(&control_thread, NULL, keyboard, pipeline);
+		pthread_create(&control_thread, NULL, keyboard, pipeline);  	//creating control thread
 	
 	
 	
@@ -162,7 +162,7 @@ gst_init(&argc, &argv);
 	printf("Press l to play the in video loop\n");
 	printf("Again press l to terminate the loop\n");
 
-    /* Create a thread for keyboard input */
+    /* Create a thread for pipeline creation */
    
     pthread_create(&pipeline_creation, NULL, mypipeline, url);
     pthread_join(pipeline_creation,NULL);
