@@ -90,7 +90,11 @@ static void* mypipeline(void* args)
 	do
 	{
 		pipeline=gst_parse_launch(input,NULL);		//Creating pipeline
-	
+		if(!pipeline){					//Checking weather pipeline created or not
+			printf("Failed to create pipeline\n");
+			break;
+		}
+		
 		gst_element_set_state(pipeline,GST_STATE_PLAYING);   //Setting pipeline to play
 		//printf("i called by thread\n");
 		
