@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<string.h>
 char* strchr1(const char* p1, char c) {
+    if(p1==NULL){
+        return NULL;
     while (*p1 != '\0') {
         if (*p1 == c) {
             return p1;
@@ -14,6 +16,9 @@ char* strchr1(const char* p1, char c) {
 
 char* stringncopy(char* p1,char* p2,int len)
 {
+    if(p1|p2==NULL){
+        return NULL;
+    }
     int i;
     i=0;
     while(i<len)
