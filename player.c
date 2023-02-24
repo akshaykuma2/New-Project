@@ -24,6 +24,10 @@ static void* keyboard(void* args)
 	while(1)
 	{
 		scanf("%c",&key);
+		if (key=='e')
+		{
+			exit(0);
+		}
 		if(key=='p')
 		{
 			GstState state;							//Knowing the state of the of video
@@ -66,8 +70,8 @@ static void* keyboard(void* args)
 			gst_element_set_state(pipeline, GST_STATE_NULL);
 			gst_object_unref(pipeline);
         		pthread_create(&pipeline_creation, NULL, mypipeline, url) ;
-    		        pthread_exit(NULL);
    			pthread_join(pipeline_creation, NULL);
+			
     	   
     
    		}
@@ -165,6 +169,7 @@ gst_init(&argc, &argv);
 	printf("Press n to play a new video\n");
 	printf("Press l to play the in video loop\n");
 	printf("Again press l to terminate the loop\n");
+	printf("Press e to exit the video\n");
 
     /* Create a thread for pipeline creation */
    
